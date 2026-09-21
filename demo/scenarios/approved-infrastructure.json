@@ -1,0 +1,7 @@
+{
+  "change": {"ticket": "CHG-1044", "pull_request": "https://github.com/example/platform/pull/44", "requester": "platform-engineer", "service": "infrastructure"},
+  "artifact": {"digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333"},
+  "environment": {"name": "production", "validated": true},
+  "approval": {"approved": true, "approver": "change-manager", "risk_approved": true},
+  "tests": {"infrastructure_plan_approved": true}
+}

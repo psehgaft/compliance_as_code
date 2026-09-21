@@ -1,0 +1,26 @@
+name: Compliance demo
+on:
+  push:
+  pull_request:
+jobs:
+  policy-and-evidence:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: open-policy-agent/setup-opa@v2
+        with:
+          version: 1.8.0
+      - run: opa test demo/policy -v
+      - run: python3 -m unittest discover -s demo/tests -v
+      - run: python3 demo/run.py run demo/scenarios/approved-payment.json --output /tmp/compliance-demo --inject-drift --recover
+      - run: python3 demo/run.py verify /tmp/compliance-demo/evidence.jsonl
+      - run: |
+          set +e
+          python3 demo/run.py run demo/scenarios/rejected-fraud.json --output /tmp/compliance-demo > /tmp/rejected.log
+          status=$?
+          set -e
+          cat /tmp/rejected.log
+          test "$status" -eq 2
+          grep -q 'BLOCKED CHG-1043' /tmp/rejected.log

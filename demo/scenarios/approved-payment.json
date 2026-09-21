@@ -1,0 +1,7 @@
+{
+  "change": {"ticket": "CHG-1042", "pull_request": "https://github.com/example/payments/pull/42", "requester": "engineer", "service": "payments-api"},
+  "artifact": {"digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"},
+  "environment": {"name": "production", "validated": true},
+  "approval": {"approved": true, "approver": "risk-reviewer", "risk_approved": true},
+  "tests": {"contract_passed": true}
+}

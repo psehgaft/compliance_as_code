@@ -1,0 +1,7 @@
+{
+  "change": {"ticket": "CHG-1043", "pull_request": "https://github.com/example/fraud/pull/43", "requester": "engineer", "service": "fraud-platform"},
+  "artifact": {"digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222"},
+  "environment": {"name": "production", "validated": true},
+  "approval": {"approved": true, "approver": "engineer", "risk_approved": false},
+  "tests": {"fraud_regression_passed": false}
+}
